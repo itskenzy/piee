@@ -4,25 +4,22 @@ body {
   width: 100vw;
   height: 100vh;
   background-image: linear-gradient(0deg, #e87d7d 0%, #11a4ff 100%);
-  overflow: hidden; /* Hide body overflow */
+  overflow: hidden; /* Menyembunyikan overflow body */
 }
 
 #envelope {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 80vw; /* Responsive width */
-  max-width: 300px; /* Maximum width */
-  height: auto; /* Responsive height */
   transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
 }
 
 #envelope > * {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
   display: none;
 }
 
@@ -53,25 +50,27 @@ body {
 #letter {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-start; /* Mengatur teks untuk mulai dari atas */
   align-items: center;
   background-color: rgb(255, 255, 255);
-  padding: 15px; /* Added padding for spacing */
+  padding: 10px;
   z-index: 5;
-  margin: 10px; /* Added margin for spacing */
+  left: 15px;
+  right: 15px;
+  bottom: 5px;
+  top: 105px;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
     0px 1px 2px 0px rgba(0, 0, 0, 0.06);
-  overflow: auto;
+  overflow: auto; /* Menambahkan scrollbar jika diperlukan */
   font-size: 16px;
-  text-align: left;
-  max-height: 70vh; /* Limit height */
+  text-align: left; /* Memastikan teks rata kiri */
 }
 
 #letter p {
-  text-align: left;
-  margin: 0;
+  text-align: left; /* Memastikan teks di dalam p rata kiri */
+  margin: 0; /* Menghilangkan margin default */
   padding: 5px;
-  line-height: 1.5;
+  line-height: 1.5; /* Menambah jarak antar baris */
 }
 
 h1 {
@@ -99,15 +98,24 @@ p {
 
 @keyframes makebig {
   0% {
-    margin-top: 0;
+    top: 105px;
+    left: 15px;
+    right: 15px;
+    bottom: 5px;
     font-size: 16px;
   }
   33% {
-    margin-top: -100px;
+    top: -100px;
+    left: 15px;
+    right: 15px;
+    bottom: 150px;
     font-size: 16px;
   }
   100% {
-    margin-top: 0;
+    top: -0px;
+    left: -55px;
+    right: -25px;
+    bottom: -100px;
     font-size: 24px;
   }
 }
@@ -140,9 +148,8 @@ a {
   text-align: center;
   color: white;
   cursor: pointer;
-  position: absolute;
-  bottom: 10px; /* Adjusted for mobile */
-  right: 10px; /* Adjusted for mobile */
+  top: calc(200px - 25px);
+  left: calc(150px - 25px);
   transition: transform 1s, background-color 1s, color 1s;
 }
 
@@ -150,6 +157,7 @@ a {
   background-color: white;
   transform: scale(1.5);
   color: rgb(255, 89, 0);
+  transition: transform 1s, background-color 1s, color 1s;
 }
 
 .text h1 {
@@ -159,21 +167,25 @@ a {
 
 @media screen and (max-width: 600px) {
   #envelope {
-    width: 90vw;
-    max-width: 280px; /* Adjusted for mobile */
+    width: 300px; /* Memastikan ukuran tetap sama */
+    height: 300px; /* Memastikan ukuran tetap sama */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7); /* Mengurangi ukuran untuk perangkat kecil */
   }
 
   #letter {
-    width: calc(100% - 20px);
+    width: calc(100% - 30px); /* Mengatur lebar surat untuk menyesuaikan dengan envelope */
     height: auto;
-    max-height: 60vh; /* Adjusted for mobile */
     padding: 10px;
+    font-size: 14px; /* Mengurangi ukuran font untuk perangkat kecil */
   }
 
   #envelope button {
     width: 40px;
     height: 40px;
-    bottom: 5%;
-    right: 5%;
+    top: calc(200px - 20px);
+    left: calc(150px - 20px);
+    font-size: 14px; /* Mengurangi ukuran font pada tombol */
   }
 }
