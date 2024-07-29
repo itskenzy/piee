@@ -4,21 +4,24 @@ body {
   width: 100vw;
   height: 100vh;
   background-image: linear-gradient(0deg, #e87d7d 0%, #11a4ff 100%);
-  overflow: hidden; /* Menyembunyikan overflow body */
+  overflow: hidden; /* Hide body overflow */
 }
 
 #envelope {
   position: absolute;
-  top: calc(50vh - 200px);
-  left: calc(50vw - 150px);
-  width: 300px;
-  height: 300px;
+  top: 50%;
+  left: 50%;
+  width: 80vw; /* Responsive width */
+  height: auto; /* Responsive height */
+  transform: translate(-50%, -50%);
 }
 
 #envelope > * {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   display: none;
 }
 
@@ -49,27 +52,24 @@ body {
 #letter {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Mengatur teks untuk mulai dari atas */
+  justify-content: flex-start;
   align-items: center;
   background-color: rgb(255, 255, 255);
   padding: 10px;
   z-index: 5;
-  left: 15px;
-  right: 15px;
-  bottom: 5px;
-  top: 105px;
+  margin: 10px; /* Added margin for spacing */
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1),
     0px 1px 2px 0px rgba(0, 0, 0, 0.06);
-  overflow: auto; /* Menambahkan scrollbar jika diperlukan */
+  overflow: auto;
   font-size: 16px;
-  text-align: left; /* Memastikan teks rata kiri */
+  text-align: left;
 }
 
 #letter p {
-  text-align: left; /* Memastikan teks di dalam p rata kiri */
-  margin: 0; /* Menghilangkan margin default */
+  text-align: left;
+  margin: 0;
   padding: 5px;
-  line-height: 1.5; /* Menambah jarak antar baris */
+  line-height: 1.5;
 }
 
 h1 {
@@ -97,24 +97,15 @@ p {
 
 @keyframes makebig {
   0% {
-    top: 105px;
-    left: 15px;
-    right: 15px;
-    bottom: 5px;
+    margin-top: 0;
     font-size: 16px;
   }
   33% {
-    top: -100px;
-    left: 15px;
-    right: 15px;
-    bottom: 150px;
+    margin-top: -100px;
     font-size: 16px;
   }
   100% {
-    top: -0px;
-    left: -55px;
-    right: -25px;
-    bottom: -100px;
+    margin-top: 0;
     font-size: 24px;
   }
 }
@@ -147,8 +138,9 @@ a {
   text-align: center;
   color: white;
   cursor: pointer;
-  top: calc(200px - 25px);
-  left: calc(150px - 25px);
+  position: absolute;
+  bottom: 10px; /* Adjusted for mobile */
+  right: 10px; /* Adjusted for mobile */
   transition: transform 1s, background-color 1s, color 1s;
 }
 
@@ -156,7 +148,6 @@ a {
   background-color: white;
   transform: scale(1.5);
   color: rgb(255, 89, 0);
-  transition: transform 1s, background-color 1s, color 1s;
 }
 
 .text h1 {
@@ -166,12 +157,12 @@ a {
 
 @media screen and (max-width: 600px) {
   #envelope {
-    width: 100%;
+    width: 90vw;
     height: auto;
   }
 
   #letter {
-    width: calc(100% - 30px);
+    width: calc(100% - 20px);
     height: auto;
     padding: 10px;
   }
@@ -179,7 +170,7 @@ a {
   #envelope button {
     width: 40px;
     height: 40px;
-    top: calc(100% - 20px);
-    left: calc(100% - 20px);
+    bottom: 5%;
+    right: 5%;
   }
 }
